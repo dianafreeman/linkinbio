@@ -4,7 +4,7 @@
 const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp-promise');
-const config = require('./config')
+const { version } = require('../lerna.json');
 
 const componentFolderName = process.argv[2];
 const componentName = `${componentFolderName.charAt(0).toUpperCase()}${componentFolderName.slice(1).replace(/-([a-z])/g, g => g[1].toUpperCase())}`;
@@ -31,10 +31,10 @@ const packageJson = () => {
   // also I'm not sure we need the storybook addons for all components,
   // can be added manually per component perhaps.
   const contents = `{
-  "name": "./${componentFolderName}",
-  "version": "${config.version}",
+  "name": "@govuk-react/${componentFolderName}",
+  "version": "${version}",
   "dependencies": {
-    "@govuk-react/lib": "^${config.version}"
+    "@govuk-react/lib": "^${version}"
   },
   "peerDependencies": {
     "react": ">=16.2.0",
