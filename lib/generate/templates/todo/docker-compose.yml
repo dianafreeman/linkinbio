@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  client:
+    image: node:12-alpine
+    command: yarn start
+    ports:
+      - 13000:13000
+    volumes:
+      - ./client:/client
+      - /client/node_modules
+
+  server:
+    image: node:12-alpine
+    command: yarn start
+    ports:
+      - 8000:8000
+    volumes:
+      - ./server:/server
+      - /server/node_modules
