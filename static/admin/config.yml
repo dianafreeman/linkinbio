@@ -4,20 +4,30 @@ backend:
   branch: main
 
 collections:
-  - name: "links" # Used in routes, e.g., /admin/collections/links
-    label: "Links" # Used in the UI
-    folder: "_content/links" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - label: "Title"
-        name: "title" 
-        widget: "string"
+  - name: 'links' # Used in routes, e.g., /admin/collections/links
+    label: 'Links' # Used in the UI
+    file: 'src/content/links.json'
+    extension: 'json'
+    format: 'json'
+    editor:
+      preview: false
+    fields:
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
 
-      - label: "Destination"
-        name: "destination" 
-        widget: "string"
-        pattern: ['https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)', "Must be a valid URL"]
+      - label: 'Description'
+        name: 'description'
+        widget: 'string'
 
-media_folder: "static/images/uploads"
-public_folder: "/images/uploads"
+      - label: 'Destination'
+        name: 'destination'
+        widget: 'string'
+        pattern:
+          [
+            'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)',
+            'Must be a valid URL',
+          ]
+
+media_folder: 'static/images/uploads'
+public_folder: '/images/uploads'
