@@ -1,17 +1,27 @@
-const config = {
+const colors = require('tailwindcss/colors');
+
+module.exports = {
   mode: 'jit',
   purge: ['./src/**/*.{html,js,svelte,ts}'],
+  content: [],
   theme: {
-    minHeight: {
-      0: '0',
-      '1/4': '25%',
-      '1/2': '50%',
-      '3/4': '75%',
-      full: '100%'
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      black: colors.black,
+      white: colors.white,
+      gray: colors.slate,
+      green: colors.emerald,
+      purple: '#5800FF',
+      yellow: '#FFC600',
+      pink: '#E900FF',
     },
-    extend: {}
+    extend: {
+      fontFamily: {
+        'computer': ['VT323', 'monospace'],
+        'sans-serif': ['Open Sans', 'sans-serif']
+      }
+    },
   },
-  plugins: []
+  plugins: [],
 };
-
-module.exports = config;

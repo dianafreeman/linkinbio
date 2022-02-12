@@ -1,9 +1,9 @@
 import preprocess from 'svelte-preprocess';
 import adapter from '@sveltejs/adapter-netlify';
-// const mode = process.env.NODE_ENV;
-// const dev = mode === 'development';
+const mode = process.env.NODE_ENV;
+const dev = mode === 'development';
 
-// process.env.TAILWIND_MODE = dev ? 'watch' : 'build';
+process.env.TAILWIND_MODE = dev ? 'watch' : 'build';
 
 const config = {
   kit: {
