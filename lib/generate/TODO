@@ -1,7 +1,0 @@
-GLOBAL
-
-Find existing generators and run the associated commands here
-
-Generate is different from create -- generate uses templates to render, create does not
-CLIENT
-

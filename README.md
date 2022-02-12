@@ -1,160 +1,40 @@
-![dianabook](./client/public/assets/images/logo.png)
+# create-svelte
 
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
+## Creating a project
 
-# DianaBook
+If you're seeing this, you've probably already done this step. Congrats!
 
-![banner](./public/assets/images/logo.png)
+```bash
+# create a new project in the current directory
+npm init svelte@next
 
-![badge]()
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code-of-conduct.md)[![license](https://img.shields.io/github/license/dianafreeman/:repo.svg)](LICENSE)[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
-
-
-
-##  Overview
-
-This project has two components: 
-
-
-
-the `client` includes a collection of components that I have started in other projects, then abandoned but saved in case I want to revisit them later. 
-
-
-
-the `server` is the dianabook REST api. Endpoints [will] include: 
-
-- projects/
-- technologies/
-- clients/
-- assets/
-- tags/
-
-
-
-the `hub` is the self-service client for the `server` application
-
-# Todo
-
- [] Convert the client to be primarily a storybook application
-
-##  Requirements
-
-[Docker](https://docs.docker.com/) and [docker-compose](https://docs.docker.com/compose)
-
-***OR***
-
- `node version >12.8` and `npm` on your local machine.
-
-##  Install
-
-If using docker, run the following command to prep your local environment
-
-```sh
-$ make install
+# create a new project in my-app
+npm init svelte@next my-app
 ```
 
-If using NPM, clone this repository locally, then run
+> Note: the `@next` is temporary
 
-```sh
-$ yarn install ## preferred for dependency management
-$ npm install  ## if you insist...
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
 ```
 
-##  Usage
+## Building
 
-Run the following command to view the react app bolerplate
+To create a production version of your app:
 
-```sh
-## With Docker
-$ make client
-
-## Without Docker
-$ yarn start
+```bash
+npm run build
 ```
 
-Run the following command to open a bash console within the docker container
+You can preview the production build with `npm run preview`.
 
-```sh
-$ make cli
-```
-
-
-
-##  Testing
-
-Run the following command to run the cypress integration test
-
-```sh
-## With Docker
-$ make integration-test
-
-## Without Docker
-$ yarn run test:integration
-```
-
-
-
-
-
-## Platforms & Frameworks
-
-### System/Infra
-
-* [Docker](https://docs.docker.com/) and [docker-compose](https://docs.docker.com/compose) *(optional)*
-
-* [Create React App](https://create-react-app.dev/)
-
-### Testing
-
-Visit the confluence page for additional details on testing frameworks, rationale, and practices
-
-* [Cypress.io](https://www.cypress.io/)
-
-* [React Testing Library](https://github.com/testing-library/react-testing-library)
-
-* [RSpec](https://rspec.info/)
-
-* [Jest](https://jestjs.io/)   (*[c/o Create React App](c/o Create React App)*)
-
-* [Chai Assertion Library](https://www.chaijs.com/)
-
-  ### CI/CD
-
-- [CircleCI](https://circleci.com/dashboard)
-
-### Code Style Enforcement
-
-* [Rubocop](https://github.com/rubocop-hq/rubocop) (Ruby)
-
-* [Prettier](https://prettier.io/) (Javascript)
-
-* [EsLint](https://eslint.org/) (*[c/o Create React App](https://create-react-app.dev/docs/setting-up-your-editor/)*)
-
-
-
-## 🏗 Convenience Tooling
-
-**List targets in Makefile**
-
-Run `make` from the root directory to view a list and description of make targets
-
-**NPM Executables**
-
-This package uses a few additional NPM targets to automate different build options for Cypress.io Run `npm run ` from the root directory to view a full list of NPM executables.
-
-
-
-## Contributing
-
-Feel free to dive in and submit PRs.
-
-This project follows the [Contributor Covenant Code of Conduct](https://www.contributor-covenant.org/version/2/0/code_of_conduct).
-
-
-
-##### Contributors
-
-[Diana M Steakley-Freeman](github.com/dianafreeman)
-
-
-
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
