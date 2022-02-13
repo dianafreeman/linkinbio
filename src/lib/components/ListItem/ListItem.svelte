@@ -1,7 +1,7 @@
 <script>
   import * as feather from 'feather-icons';
   import { onMount } from 'svelte';
-import { text } from 'svelte/internal';
+  import { text } from 'svelte/internal';
   import { ICON_WRAPPER_STYLE_MAP, TEXT_STYLE_MAP } from './constants';
 
   export let item;
@@ -32,13 +32,13 @@ import { text } from 'svelte/internal';
       },
     },
     iconWrapper: {
-      hovered: { 
+      hovered: {
         video: 'text-yellow icon-glow-yellow',
-    article: 'text-pink icon-glow-pink',
-    cause: 'text-purple icon-glow-purple',
+        article: 'text-pink icon-glow-pink',
+        cause: 'text-purple icon-glow-purple',
       },
-      default: {}
-    }
+      default: {},
+    },
   };
   const ICON_MAP = {
     // list item type: icon type
@@ -82,7 +82,9 @@ import { text } from 'svelte/internal';
       </span>
     </div>
     <div class="pl-10">
-      <p class={hovered ? STYLES.text.hovered[item.type] : STYLES.text.default[item.type]}>{item.name}</p>
+      <p class={hovered ? STYLES.text.hovered[item.type] : STYLES.text.default[item.type]}>
+        {item.name}
+      </p>
     </div>
   </a>
 </li>
@@ -124,7 +126,6 @@ import { text } from 'svelte/internal';
       }
     }
     @keyframes text-inactive {
-    
       from {
         text-shadow: 0 0 1px #ababab, 0 0 1px #ababab;
       }
@@ -145,10 +146,12 @@ import { text } from 'svelte/internal';
     }
     @keyframes box-inactive-#{$name} {
       from {
-        box-shadow: 0 0 5px lighten($color, 40%), 0 0 15px $white, inset 0 0 8px #ababab, inset 0 0 10px $white;
+        box-shadow: 0 0 5px lighten($color, 40%), 0 0 15px $white, inset 0 0 8px #ababab,
+          inset 0 0 10px $white;
       }
       to {
-        box-shadow: 0 0 3px lighten($color, 40%), 0 0 10px $white, inset 0 0 3px #ababab, inset 0 0 8px $white;
+        box-shadow: 0 0 3px lighten($color, 40%), 0 0 10px $white, inset 0 0 3px #ababab,
+          inset 0 0 8px $white;
       }
     }
   }

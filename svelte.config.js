@@ -1,5 +1,5 @@
 import preprocess from 'svelte-preprocess';
-import path from 'path'
+import path from 'path';
 import adapter from '@sveltejs/adapter-netlify';
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -22,12 +22,12 @@ const config = {
       resolve: {
         alias: {
           // these are the aliases and paths to them
-          '$components': path.resolve('./src/lib/components'),
-          '$config': path.resolve('./src/lib/config'),
-          '$content': path.resolve('./src/content')
-        }
-      }
-    }
+          $components: path.resolve('./src/lib/components'),
+          $config: path.resolve('./src/lib/config'),
+          $content: path.resolve('./src/content'),
+        },
+      },
+    },
   },
 };
 

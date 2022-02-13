@@ -5,8 +5,7 @@
   export const links = json.default.reverse();
   export const prerender = true;
 
-  let socials = ["linkedin","github", "film"];
-
+  let socials = ['linkedin', 'github', 'film'];
 </script>
 
 <svelte:head>
@@ -17,9 +16,9 @@
     <h1 class="font-computer text-center">Hi! I'm Diana.</h1>
     <ul class="flex flex-row w-full justify-center place-content-between">
       {#each socials as social}
-      <li class="px-1 m-1 text-center leading-4">
-        <a class="px-1" target="_blank" href="#"> <i data-feather={social} /> </a>
-      </li>
+        <li class="px-1 m-1 text-center leading-4">
+          <a class="px-1" target="_blank" href="#"> <i data-feather={social} /> </a>
+        </li>
       {/each}
     </ul>
   </div>
