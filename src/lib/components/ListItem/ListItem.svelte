@@ -1,8 +1,6 @@
 <script>
   import * as feather from 'feather-icons';
   import { onMount } from 'svelte';
-  import { text } from 'svelte/internal';
-  import { ICON_WRAPPER_STYLE_MAP, TEXT_STYLE_MAP } from './constants';
 
   export let item;
 
@@ -10,32 +8,27 @@
     box: {
       hovered: {
         video: 'text-yellow box-glow-yellow',
-        article: 'text-pink box-glow-pink',
-        cause: 'text-purple box-glow-purple',
+        article: 'text-teal box-glow-teal',
+        cause: 'text-pink box-glow-pink',
       },
       default: {
         video: 'box-inactive-yellow',
-        article: 'box-inactive-pink',
-        cause: 'box-inactive-purple',
+        article: 'box-inactive-teal',
+        cause: 'box-inactive-pink',
       },
     },
     text: {
       hovered: {
         video: 'text-glow-yellow',
-        article: 'text-glow-pink',
-        cause: 'text-glow-purple',
-      },
-      default: {
-        video: 'text-inactive-yellow',
-        article: 'text-inactive-pink',
-        cause: 'text-inactive-purple',
+        article: 'text-glow-teal',
+        cause: 'text-glow-pink',
       },
     },
     iconWrapper: {
       hovered: {
         video: 'text-yellow icon-glow-yellow',
-        article: 'text-pink icon-glow-pink',
-        cause: 'text-purple icon-glow-purple',
+        article: 'text-teal icon-glow-teal',
+        cause: 'text-pink icon-glow-pink',
       },
       default: {},
     },
@@ -67,7 +60,7 @@
   on:focus={handleStartHover}
   on:mouseleave={handleEndHover}
   on:blur={handleEndHover}
-  class={`flex relative w-full text-left py-3 px-5 my-6 rounded-md ring-2 ring-gray-500 ${
+  class={`flex relative w-full text-left py-3 px-5 my-6 rounded-md ring-1 ring-gray-500 ${
     hovered ? STYLES.box.hovered[item.type] : STYLES.box.default[item.type]
   }`}
 >
@@ -82,7 +75,7 @@
       </span>
     </div>
     <div class="pl-10">
-      <p class={hovered ? STYLES.text.hovered[item.type] : STYLES.text.default[item.type]}>
+      <p class={hovered && STYLES.text.hovered[item.type] }>
         {item.name}
       </p>
     </div>
@@ -93,6 +86,7 @@
   $yellow: #ffc600;
   $pink: #e900ff;
   $purple: #5800ff;
+  $teal: #009dff;
   $white: #fff;
 
   $colors: (
@@ -100,15 +94,12 @@
     'yellow': $yellow,
     'pink': $pink,
     'purple': $purple,
+    'teal': $teal,
   );
 
   @each $name, $color in $colors {
     .box-inactive-#{$name} {
       animation: box-inactive-#{$name} 1.5s ease-in-out infinite alternate;
-    }
-    .text-inactive {
-      @apply text-gray-300;
-      animation: text-inactive 1.5s ease-in-out infinite alternate;
     }
     .box-glow-#{$name} {
       animation: box-glow-#{$name} 1.5s ease-in-out infinite alternate;
@@ -125,14 +116,6 @@
         text-shadow: 0 0 5px $color;
       }
     }
-    @keyframes text-inactive {
-      from {
-        text-shadow: 0 0 1px #ababab, 0 0 1px #ababab;
-      }
-      to {
-        text-shadow: 0 0 5px #ababab, 0 0 2px #ababab;
-      }
-    }
 
     @keyframes box-glow-#{$name} {
       from {
@@ -146,12 +129,12 @@
     }
     @keyframes box-inactive-#{$name} {
       from {
-        box-shadow: 0 0 5px lighten($color, 40%), 0 0 15px $white, inset 0 0 8px #ababab,
-          inset 0 0 10px $white;
+        box-shadow: 0 0 2px lighten($color, 40%), 0 0 5px $white, inset 0 0 2px #ababab,
+          inset 0 0 5px $white;
       }
       to {
-        box-shadow: 0 0 3px lighten($color, 40%), 0 0 10px $white, inset 0 0 3px #ababab,
-          inset 0 0 8px $white;
+        box-shadow: 0 0 1px lighten($color, 40%), 0 0 3px $white, inset 0 0 1px #ababab,
+          inset 0 0 3px $white;
       }
     }
   }
