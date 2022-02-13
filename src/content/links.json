@@ -1,12 +1,40 @@
 [
   {
-    "destination": "",
-    "description": "2020 Cover by Diana",
-    "name": "\"Make Them Hear You\""
+    "name": "\"Make Them Hear You, In Memoriam \". 2021 Cover By Diana",
+    "url": "https://www.youtube.com/watch?v=B5kujWyvwQs",
+    "type": "video"
   },
   {
-    "destination": "",
-    "description": "2020 Cover by Diana",
-    "name": "\"Make Them Hear You\""
+    "name": "Digital Mental Health Panel @ Saks Institute Spring 2019 Symposium",
+    "url": "https://www.youtube.com/watch?v=4ThhlLeO6AM&t=1208s",
+    "type": "video"
+   },
+  {
+    "name": "Donate to Fair Fight",
+    "url": "https://secure.actblue.com/donate/fair-fight-1",
+    "type": "cause"
+  },
+  {
+    "name": "",
+    "url": "",
+    "type": "cause"
+  },
+  {
+    "name": "",
+    "url": "",
+    "type": "",
+    "body": ""
+  },
+  {
+    "name": "",
+    "url": "",
+    "type": "",
+    "body": ""
+  },
+  {
+    "name": "",
+    "url": "",
+    "type": "",
+    "body": ""
   }
 ]

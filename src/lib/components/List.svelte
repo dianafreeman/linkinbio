@@ -6,16 +6,17 @@
 
   let processed = links
 
-  let allTags = processed.map( i => i.tags?.indexOf(",") > -1 ? i.tags.split(",").map(i => i.trim()) : i.tags ).flat()
-  tags = Array.from( new Set(allTags))
+  // let allTags = processed.map( i => i.tags?.indexOf(",") > -1 ? i.tags.split(",").map(i => i.trim()) : i.tags ).flat()
+  // tags = Array.from( new Set(allTags))
 
 
 </script>
 
 <div class="w-11/12">
-  {#each tags as tag}
-  <span>{tag}</span>
-  {/each}
+
+  <a>Github</a>
+  <a>LinkedIn</a>
+  <a>TikTok</a>
 
   <ul>
     {#each processed as item}

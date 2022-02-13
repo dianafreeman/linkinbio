@@ -1,6 +1,6 @@
 <script context="module">
-  import List from 'src/config/List.svelte';
-  import * as json from '../content/links.json';
+  import List from '$components/List.svelte';
+  import * as json from '$content/links.json';
 
   export const links = json.default;
   export const prerender = true;
