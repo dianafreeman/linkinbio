@@ -10,7 +10,7 @@
   // tags = Array.from( new Set(allTags))
 </script>
 
-<div class="w-full">
+<div class="w-full my-2">
   <ul>
     {#each processed as item}
       <ListItem {item} />
