@@ -3,8 +3,14 @@
     "baseUrl": ".",
     "paths": {
       "$lib": ["src/lib"],
+      "$components": ["src/components"],
+      "$components/*": ["src/components/*"],
+      "$config": ["src/config"],
+      "$config/*": ["src/config/*"],
+      "$content": ["src/content"],
+      "$content/*": ["src/content/*"],
       "$lib/*": ["src/lib/*"]
     }
   },
-  "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.svelte", "src/config/themeColors.cjs"]
+  "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.svelte"]
 }
