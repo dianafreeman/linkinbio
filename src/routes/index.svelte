@@ -1,59 +1,41 @@
 <script context="module">
-	export const prerender = true;
-</script>
+  import List from '$components/List.svelte';
+  import * as json from '$content/links.json';
 
-<script>
-	import List from '$lib/List.svelte';
+  export const links = json.default.reverse();
+  export const prerender = true;
+
+  let socials = [{
+    'url': "https://www.linkedin.com/in/dianasteakleyfreeman",
+    label: "connect on linkedin",
+    icon: 'linkedin'
+  },{
+    url: "https://github.com/dianafreeman/",
+    label: "check out my github",
+    icon: "github",
+  },{
+    url: 'https://www.tiktok.com/@dianasfreeman',
+    label: "find me on tiktok",
+    icon: 'film'
+  }];
 </script>
 
 <svelte:head>
-	<title>Home</title>
+  <title>DianaBook Links</title>
 </svelte:head>
-
-<section>
-	<h1>
-		<div class="welcome">
-			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
-			</picture>
-		</div>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/index.svelte</strong>
-	</h2>
-
-	<List />
+<section class="text-white">
+    <div class="pt-5 text-center ">
+    <div class="relative pt-10 border-gray-500 border-r border-l border-b rounded-t-lg rounded-b-md">
+    <div class="absolute top-0 left-0 w-full h-10 border border-gray-500 bg-gray-500 rounded-t-lg" />
+        <h1 class="font-computer text-center my-2">Hi! I'm Diana.</h1>
+        <ul class="flex flex-row w-full justify-center place-content-between my-2">
+          {#each socials as social (social.url)}
+            <li class="p-2 m-1 text-center leading-4 w-25 h-25 border border-gray-500 rounded-full text-gray-500 hover:text-white hover:border-white  ">
+              <a target="_blank" href={social.url} aria-label={social.label}> <i data-feather={social.icon} /> </a>
+            </li>
+          {/each}
+        </ul>
+    </div>
+    <List {links} />
+  </div>
 </section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style>
