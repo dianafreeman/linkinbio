@@ -1,5 +1,4 @@
-const twcolors = require('tailwindcss/colors');
-const colors = require('./src/config/themeColors.cjs')
+const colors = require('tailwindcss/colors');
 
 module.exports = {
   mode: 'jit',
@@ -9,13 +8,14 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      black: twcolors.black,
-      white: twcolors.white,
-      gray: twcolors.slate,
-      green: twcolors.emerald,
-      purple: colors.purple,
-      yellow: colors.yellow,
-      pink: colors.pink,
+      black: colors.black,
+      white: colors.white,
+      gray: colors.slate,
+      green: colors.emerald,
+      red: colors.red,
+      purple: '#5800ff',
+      yellow: '#ffc600',
+      pink: '#e900ff',
     },
     extend: {
       fontFamily: {
