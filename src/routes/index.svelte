@@ -21,7 +21,7 @@
 </script>
 
 <svelte:head>
-  <title>Home</title>
+  <title>DianaBook Links</title>
 </svelte:head>
 <section class="text-white">
     <div class="pt-5 text-center ">
