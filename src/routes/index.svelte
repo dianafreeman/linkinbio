@@ -1,5 +1,5 @@
 <script context="module">
-  import List from '$lib/List.svelte';
+  import List from 'src/config/List.svelte';
   import * as json from '../content/links.json';
 
   export const links = json.default;
