@@ -1,38 +1,14 @@
 <script>
   import * as feather from 'feather-icons';
   import { onMount } from 'svelte';
+  import { tweened } from 'svelte/motion';
+  import { cubicOut } from 'svelte/easing';
 
-  export let item;
+  const glowSize = tweened(1);
 
-  const STYLES = {
-    box: {
-      hovered: {
-        video: 'text-yellow box-glow-yellow',
-        article: 'text-teal box-glow-teal',
-        cause: 'text-pink box-glow-pink',
-      },
-      default: {
-        video: 'box-inactive-yellow',
-        article: 'box-inactive-teal',
-        cause: 'box-inactive-pink',
-      },
-    },
-    text: {
-      hovered: {
-        video: 'text-glow-yellow',
-        article: 'text-glow-teal',
-        cause: 'text-glow-pink',
-      },
-    },
-    iconWrapper: {
-      hovered: {
-        video: 'text-yellow icon-glow-yellow',
-        article: 'text-teal icon-glow-teal',
-        cause: 'text-pink icon-glow-pink',
-      },
-      default: {},
-    },
-  };
+  let hovered;
+  export let item, color;
+
   const ICON_MAP = {
     // list item type: icon type
     video: 'youtube',
@@ -41,101 +17,79 @@
   };
   const icon = ICON_MAP[item.type];
 
-  let hovered = false;
-
   function handleStartHover() {
     hovered = true;
+    $glowSize = 5;
   }
   function handleEndHover() {
     hovered = false;
+    $glowSize = 1;
   }
 
   onMount(() => {
     feather.replace();
   });
+
+  const COLOR_MAP = {
+    yellow: `#ffc600`,
+    pink: `#e900ff`,
+    purple: `#5800ff`,
+    teal: `#009dff`,
+    white: `#fff`,
+  };
+
+  const white = `#fff`;
+
 </script>
 
-<li
+<a
   on:mouseenter={handleStartHover}
   on:focus={handleStartHover}
   on:mouseleave={handleEndHover}
   on:blur={handleEndHover}
-  class={`flex relative w-full text-left py-3 px-5 my-6 rounded-md ring-1 ring-gray-500 ${
-    hovered ? STYLES.box.hovered[item.type] : STYLES.box.default[item.type]
-  }`}
+  class="link-item flex relative w-full text-left py-3 px-5 my-6 rounded-md ring-1 ring-gray-500 overflow-hidden"
+  style={`box-shadow: 0 0 ${$glowSize}px ${white}, 0 0 ${$glowSize * 1.5}px ${
+    COLOR_MAP[color]
+  }, 0 0 ${$glowSize * 2}px ${COLOR_MAP[color]}, 0 0 ${$glowSize * 3}px ${COLOR_MAP[color]},
+  inset 0 0 ${$glowSize}px ${white}, inset 0 0 ${$glowSize * 1.5}px ${COLOR_MAP[color]}`}
+  href={item.url}
 >
-  <a target="_blank" href={item.url}>
-    <div class="flex absolute h-full w-16 left-0 top-0 p-2 text-center justify-center items-center">
-      <span
-        class={`flex relative h-12 w-12 p-1 text-center justify-center items-center ${
-          hovered ? STYLES.iconWrapper.hovered[item.type] : STYLES.iconWrapper.default[item.type]
-        }`}
-      >
-        <i data-feather={icon} />
-      </span>
-    </div>
-    <div class="pl-10">
-      <p class={hovered && STYLES.text.hovered[item.type] }>
-        {item.name}
-      </p>
-    </div>
-  </a>
-</li>
+  <span class:ripple={hovered} />
+  <div class="flex absolute h-full w-16 left-0 top-0 p-2 text-center justify-center items-center">
+    <span class={`flex relative h-12 w-12 p-1 text-center justify-center items-center`}>
+      <i data-feather={icon} />
+    </span>
+  </div>
+  <div class="pl-10">
+    <p style="text-shadow: 0 0 2px {COLOR_MAP[color]}">
+      {item.name}
+    </p>
+  </div>
+</a>
 
-<style lang="scss">
-  $yellow: #ffc600;
-  $pink: #e900ff;
-  $purple: #5800ff;
-  $teal: #009dff;
-  $white: #fff;
+<style>
+  .ripple {
+    z-index: 100;
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    animation: ripple 1s infinite;
+  }
 
-  $colors: (
-    'white': $white,
-    'yellow': $yellow,
-    'pink': $pink,
-    'purple': $purple,
-    'teal': $teal,
-  );
-
-  @each $name, $color in $colors {
-    .box-inactive-#{$name} {
-      animation: box-inactive-#{$name} 1.5s ease-in-out infinite alternate;
-    }
-    .box-glow-#{$name} {
-      animation: box-glow-#{$name} 1.5s ease-in-out infinite alternate;
-    }
-    .text-glow-#{$name} {
-      animation: text-glow-#{$name} 1.5s ease-in-out infinite alternate;
+  /* Add animation */
+  @keyframes ripple {
+    from {
+      opacity: 1;
+      transform: scale(0);
     }
 
-    @keyframes text-glow-#{$name} {
-      from {
-        text-shadow: 0 0 2px $color;
-      }
-      to {
-        text-shadow: 0 0 5px $color;
-      }
-    }
-
-    @keyframes box-glow-#{$name} {
-      from {
-        box-shadow: 0 0 5px $white, 0 0 15px $color, 0 0 17px $color, 0 0 25px $color,
-          inset 0 0 10px $white, inset 0 0 10px $color;
-      }
-      to {
-        box-shadow: 0 0 3px $white, 0 0 10px $color, 0 0 12px $color, 0 0 20px $color,
-          inset 0 0 5px $white, inset 0 0 8px $color;
-      }
-    }
-    @keyframes box-inactive-#{$name} {
-      from {
-        box-shadow: 0 0 2px lighten($color, 40%), 0 0 5px $white, inset 0 0 2px #ababab,
-          inset 0 0 5px $white;
-      }
-      to {
-        box-shadow: 0 0 1px lighten($color, 40%), 0 0 3px $white, inset 0 0 1px #ababab,
-          inset 0 0 3px $white;
-      }
+    to {
+      opacity: 0;
+      transform: scale(100);
     }
   }
 </style>

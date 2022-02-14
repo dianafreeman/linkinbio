@@ -8,21 +8,39 @@ collections:
     label: 'Links' # Used in the UI
     file: 'src/content/links.json'
     files:
-      - label: "LinkInBio Page"
-        name: "links"
-        file: "src/content/links.js"
+      - label: 'LinkInBio Page'
+        name: 'links'
+        file: 'src/content/links.js'
         fields:
-          - {label: Name, name: title, widget: string}
-          - {label: Url, name: url, widget: string,  pattern: [ 'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)', 'Must be a valid URL'] }
-          - {label: Type, name: type, widget: string }
-          - {label: Color, name: type, widget: string }
-          
-      - label: "Socials"
-        name: "socials"
-        file: "site/content/socials.json"
+          - { label: Name, name: title, widget: string }
+          - {
+              label: Url,
+              name: url,
+              widget: string,
+              pattern:
+                [
+                  'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)',
+                  'Must be a valid URL',
+                ],
+            }
+          - { label: Type, name: type, widget: string }
+          - { label: Color, name: type, widget: string }
+
+      - label: 'Socials'
+        name: 'socials'
+        file: 'site/content/socials.json'
         fields:
-          - {label: Name, name: title, widget: string}
-          - {label: Url, name: url, widget: string,  pattern: [ 'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)', 'Must be a valid URL'] }
+          - { label: Name, name: title, widget: string }
+          - {
+              label: Url,
+              name: url,
+              widget: string,
+              pattern:
+                [
+                  'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)',
+                  'Must be a valid URL',
+                ],
+            }
 
 media_folder: 'static/images/uploads'
 public_folder: '/images/uploads'
