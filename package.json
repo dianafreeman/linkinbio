@@ -33,6 +33,7 @@
     "@fontsource/fira-mono": "^4.5.0",
     "@lukeed/uuid": "^2.0.0",
     "cookie": "^0.4.1",
-    "feather-icons": "^4.28.0"
+    "feather-icons": "^4.28.0",
+    "svelte-gestures": "^1.4.1"
   }
 }
