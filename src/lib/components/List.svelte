@@ -1,8 +1,8 @@
 <script>
   // import { spring } from 'svelte/motion';
-  import ListItem from './ListItem/ListItem.svelte';
+  import ListItem from './ListItem.svelte';
 
-  export let links, tags;
+  export let links;
 
   let processed = links;
 
@@ -11,11 +11,11 @@
 </script>
 
 <div class="w-full my-2">
-  <ul>
+  <nav>
     {#each processed as item}
-      <ListItem {item} />
+      <ListItem {item} color={item.color} />
     {/each}
-  </ul>
+  </nav>
 </div>
 
 <style>

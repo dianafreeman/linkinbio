@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="description" content="Dianabook" />
+    <meta name="description" content="dianasfreeman" />
     <link rel="icon" href="%svelte.assets%/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,6 +14,17 @@
     %svelte.head%
   </head>
   <body>
-    <div>%svelte.body%</div>
+    %svelte.body%
   </body>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZEZR34C7P"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-NZEZR34C7P');
+  </script>
 </html>
