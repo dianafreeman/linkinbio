@@ -25,7 +25,7 @@
 </script>
 
 <svelte:head>
-  <title>DianaBook Links</title>
+  <title>LinkInBio | @dianasfreeman</title>
 </svelte:head>
 <section class="text-white">
   <div class="pt-5 text-center ">
