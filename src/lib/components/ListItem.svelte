@@ -1,12 +1,16 @@
 <script>
   import * as feather from 'feather-icons';
+  import { longpress } from './longpress';
   import { onMount } from 'svelte';
   import { tweened } from 'svelte/motion';
   import { tap } from 'svelte-gestures';
+  import { fade } from "svelte/transition";
+
 
   export let item, color;
 
-  const glowSize = tweened(1);
+  const duration = 300
+  const glowSize = tweened(1, { duration });
   let exiting = false;
 
   const ICON_MAP = {
@@ -16,13 +20,6 @@
     cause: 'thumbs-up',
   };
   const icon = ICON_MAP[item.type];
-
-  function handleStartHover() {
-    $glowSize = 5;
-  }
-  function handleEndHover() {
-    $glowSize = 1;
-  }
 
   function onClick(ev) {
     ev.preventDefault();
@@ -46,16 +43,28 @@
   };
 
   const white = `#fff`;
+
+  function setGlow(val){
+    $glowSize = val
+  }
+
+  function onMouseOver(){
+    setGlow(5)
+  }
+  function onMouseExit(){
+    setGlow(1)
+  }
+
 </script>
 
 <a
-  use:tap={{ timeframe: 300 }}
+  use:tap={{ timeframe: duration }}
+  use:longpress={500}
   on:click={onClick}
-  on:tap={onClick}
-  on:mouseover={handleStartHover}
-  on:mouseleave={handleEndHover}
-  on:focus={handleStartHover}
-  on:blur={handleEndHover}
+  on:tap={onMouseOver}
+  on:mouseover={onMouseOver}
+  on:focus={onMouseOver}
+  on:mouseleave={onMouseExit}
   class="link-item flex relative w-full text-left py-3 px-5 my-6 rounded-md ring-1 ring-gray-500 overflow-hidden"
   style={`box-shadow: 0 0 ${$glowSize}px ${white}, 0 0 ${$glowSize * 1.5}px ${
     COLOR_MAP[color]
@@ -69,12 +78,14 @@
     </span>
   </div>
   <div class="pl-10">
-    <p style="text-shadow: 0 0 2px {COLOR_MAP[color]}">
-      {#if exiting}
+    {#if exiting}
+    <p transition:fade style="text-shadow: 0 0 2px {COLOR_MAP[color]}">
         Good choice! See you again soon!
+      </p>
       {:else}
-        {item.name}
+      <p style="text-shadow: 0 0 2px {COLOR_MAP[color]}">
+          {item.name}
+        </p>
       {/if}
-    </p>
   </div>
 </a>
