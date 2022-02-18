@@ -1,6 +1,7 @@
 {
-  "name": "dianabook",
+  "name": "dianasfreeman",
   "version": "0.0.1",
+  "description": "LinkInBio SvelteKit App for @dianasfreeman",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
