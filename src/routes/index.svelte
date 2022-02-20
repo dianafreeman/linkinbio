@@ -1,25 +1,26 @@
 <script context="module">
-  import List from '$components/List.svelte';
   import * as json from '$content/links.json';
+  import IconButton from '$lib/components/IconButton.svelte';
+  import ListItem from '$lib/components/ListItem.svelte';
 
-  export const links = json.default.reverse();
+  export const links = json.default;
   export const prerender = true;
 
   let socials = [
     {
       url: 'https://www.linkedin.com/in/dianasteakleyfreeman',
-      label: 'connect on linkedin',
-      icon: 'linkedin',
+      name: 'connect on linkedin',
+      type: 'linkedin',
     },
     {
       url: 'https://github.com/dianafreeman/',
-      label: 'check out my github',
-      icon: 'github',
+      name: 'check out my github',
+      type: 'github',
     },
     {
       url: 'https://www.tiktok.com/@dianasfreeman',
-      label: 'find me on tiktok',
-      icon: 'film',
+      name: 'find me on tiktok',
+      type: 'tiktok',
     },
   ];
 </script>
@@ -38,16 +39,21 @@
       <h1 class="font-computer text-center my-2">Hi! I'm Diana.</h1>
       <ul class="flex flex-row w-full justify-center place-content-between my-2">
         {#each socials as social (social.url)}
-          <li
-            class="p-2 m-1 text-center leading-4 w-25 h-25 border border-gray-500 rounded-full text-gray-500 hover:text-white hover:border-white  "
-          >
-            <a target="_blank" href={social.url} aria-label={social.label}>
-              <i data-feather={social.icon} />
-            </a>
+          <li class="list-none mx-3">
+            <IconButton
+              class="flex items-center relative w-full text-left py-1 my-1 rounded-full"
+              target={social.url}
+              iconType={social.type}
+            />
           </li>
         {/each}
       </ul>
     </div>
-    <List {links} />
+
+    <div class="w-full my-2">
+        {#each links as item}
+          <ListItem {item} />
+        {/each}
+    </div>
   </div>
 </section>
