@@ -84,8 +84,8 @@
   on:clickOutside={deactivate}
   style:box-shadow={glowStyle}
 >
-  <div class="flex h-full w-16 left-0 top-0 px-2 text-center justify-center items-center">
-    <span class={`flex relative h-12 w-12 text-center justify-center items-center`}>
+  <div class="flex h-full left-0 top-0 text-center justify-center items-center">
+    <span class={`h-8 w-8 my-2 mx-1`}>
       <Icon type={iconType} {color} />
     </span>
   </div>
