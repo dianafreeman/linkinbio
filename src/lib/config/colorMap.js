@@ -1,10 +1,10 @@
 const COLOR_MAP = {
-    yellow: `#ffc600`,
-    pink: `#e900ff`,
-    purple: `#5800ff`,
-    teal: `#009dff`,
-    white: `#fff`,
-  };
+  // type: color name
+  video: `#ffc600`,
+  cause: `#e900ff`,
+  purple: `#5800ff`,
+  teal: `#009dff`,
+  white: `#fff`,
+};
 
-
-export default COLOR_MAP
+export default COLOR_MAP;

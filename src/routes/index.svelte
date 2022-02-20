@@ -50,10 +50,10 @@
       </ul>
     </div>
 
-    <div class="w-full my-2">
-        {#each links as item}
-          <ListItem {item} />
-        {/each}
+    <div class="w-full flex justify-between">
+      {#each links as item, idx}
+        <ListItem {item} index={idx} />
+      {/each}
     </div>
   </div>
 </section>
