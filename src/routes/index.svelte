@@ -12,11 +12,12 @@
 <svelte:head>
   <title>LinkInBio | @dianasfreeman</title>
 </svelte:head>
-<section class="text-white">
-  <div class="pt-5 text-center ">
+<section class="text-white text-center">
+  <div class="pt-5">
     <div
       class="relative p-5 pt-10 border-gray-500 border-r border-l border-b rounded-t-lg rounded-b-md"
-    >
+  
+      >
       <div class="absolute top-0 left-0 w-full border border-gray-500 bg-gray-500 rounded-t-lg">
         <ul class="flex flex-row w-full justify-end">
           {#each socials as social (social.url)}
@@ -33,7 +34,7 @@
       <h1 class="font-computer text-center pb-5 pt-10">Hi! I'm Diana.</h1>
 
       <!-- SORT AND FILTER -->
-      <div class="w-full justify-between">
+      <div class="w-full justify-between m-auto">
         {#each links as item, idx}
           <ListItem {item} index={idx} />
         {/each}
