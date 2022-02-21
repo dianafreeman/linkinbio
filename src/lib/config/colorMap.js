@@ -1,4 +1,4 @@
-import twcolors from 'tailwindcss/colors';
+import twcolors from 'tailwindcss/colors.js';
 const COLORS = {
   lightblue: {
     DEFAULT: '#6BEEFF',
