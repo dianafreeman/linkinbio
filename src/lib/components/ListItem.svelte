@@ -1,28 +1,28 @@
 <script>
-  import Icon from './Icon.svelte';
+  import Icon from '../elements/Icon/Icon.svelte';
+  import GlowWrapper from './GlowWrapper.svelte';
+  import COLOR_MAP from '$lib/config/colorMap';
+  import GlowText from './GlowText.svelte';
 
-  export let item, index;
+  export let item;
 
-  let backgrounds = {
-    video: 'from-yellow-700 to-yellow-900 text-black',
-    cause: 'from-purple-500 to-purple-800 text-black',
-    article: 'from-pink-500 to-pink-800 text-black',
-  };
-  console.log(index % 2 === 0);
 </script>
 
-<div
-  class={`w-full m-auto bg-gradient-to-b flex-col h-32 items-center relative text-left my-6 rounded-xl overflow-hidden ${
-    backgrounds[item.type]
-  }`}
-
+<GlowWrapper
+  color={COLOR_MAP[item.type]}
+  class={`w-full m-auto flex flex-row h-32 items-center relative text-left my-6 rounded-xl`}
 >
-  <div class="absolute top-4 left-4 w-10 h-10">
-    <Icon type={item.type} color="white" />
+  <div class="w-1/4 h-10">
+    <Icon type={item.type} color={COLOR_MAP[item.type]} glow={true}/>
   </div>
-  <div class="absolute bottom-4 w-full pr-4">
-    <p class="font-bold text-white text-right">
+  <div class="w-3/4 pr-4">
+    <GlowText class="font-exo text-2xl text-right" color={COLOR_MAP[item.type]}>
       {item.name}
-    </p>
+    </GlowText>
   </div>
-</div>
+  <div class="w-1/4 h-10">
+    <a href={item.url}>
+      <Icon type="newwindow" color={COLOR_MAP[item.type]} glow={true}/>
+    </a>
+  </div>
+</GlowWrapper>

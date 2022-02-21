@@ -78,6 +78,7 @@ module.exports = {
     extend: {
       fontFamily: {
         computer: ['VT323', 'monospace'],
+        exp: ['Exo 2', 'sans-serif'],
         'sans-serif': ['Open Sans', 'sans-serif'],
       },
     },
