@@ -1,7 +1,6 @@
 import { tweened } from 'svelte/motion';
 
 function createGlow(color, size) {
- 
   const duration = 100;
   const lowerBound = 1;
   const upperBound = 5;
@@ -55,8 +54,7 @@ function createGlow(color, size) {
       ? ($glowSize = upperBound)
       : ($glowSize = lowerBound);
 
-
-      return [glowStyle, toggleGlow]
+  return [glowStyle, toggleGlow];
 }
 
-export default createGlow
+export default createGlow;

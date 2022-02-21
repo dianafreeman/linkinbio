@@ -1,4 +1,4 @@
-import twcolors from 'tailwindcss/colors'
+import twcolors from 'tailwindcss/colors';
 const COLORS = {
   lightblue: {
     DEFAULT: '#6BEEFF',
@@ -65,8 +65,8 @@ const COLORS = {
     800: '#F08000',
     900: '#C75D00',
   },
-}
- 
+};
+
 const COLOR_MAP = {
   // type: color name
   video: COLORS['pink'][600],
@@ -77,4 +77,3 @@ const COLOR_MAP = {
 };
 
 export default COLOR_MAP;
-

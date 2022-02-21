@@ -8,12 +8,11 @@
   let wasTapped = true;
 
   const toggleWasTapped = (value) => (wasTapped = value || !wasTapped);
-
 </script>
 
 <a href={url} {...$$props}>
-    <Icon type={iconType} {color} wrapperClass={wrapperClass}/>
-    <div class="w-auto flex-1">
+  <Icon type={iconType} {color} {wrapperClass} />
+  <div class="w-auto flex-1">
     <slot />
   </div>
 </a>

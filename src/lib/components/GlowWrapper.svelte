@@ -53,11 +53,11 @@
 </script>
 
 {#if asButton}
-  <button {...$$props} on:click={() => onclick()} style:box-shadow={glowStyle} >
+  <button {...$$props} on:click={() => onclick()} style:box-shadow={glowStyle}>
     <slot />
   </button>
 {:else}
-  <div {...$$props} on:click={() => onclick()} style:box-shadow={glowStyle} >
+  <div {...$$props} on:click={() => onclick()} style:box-shadow={glowStyle}>
     <slot />
   </div>
 {/if}
