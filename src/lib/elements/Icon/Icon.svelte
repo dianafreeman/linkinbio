@@ -1,5 +1,5 @@
 <script>
-  export let type, color, glow;
+  export let type, color, glow, wrapperClass;
 
   const ICON_TYPE_MAP = {
     video: () => import('$lib/elements/Icon/icons/youtube.svelte'),
@@ -14,5 +14,7 @@
 </script>
 
 {#await ICON_TYPE_MAP[type]() then module}
+<div class="{wrapperClass || "w-24 h-10 m-auto "}">
     <svelte:component this={module.default} {...$$props} {type} {color} {glow}/>
+  </div>
 {/await}
