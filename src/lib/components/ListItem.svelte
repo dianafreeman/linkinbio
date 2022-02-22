@@ -1,92 +1,74 @@
 <script>
-  import * as feather from 'feather-icons';
-  import { longpress } from './longpress';
-  import { onMount } from 'svelte';
+  import Icon from '$lib/elements/Icon/Icon.svelte';
+  import GlowWrapper from './GlowWrapper.svelte';
+  import COLOR_MAP from '$lib/config/colorMap';
+  import GlowText from './GlowText.svelte';
+  import { fly } from 'svelte/transition';
   import { tweened } from 'svelte/motion';
-  import { tap } from 'svelte-gestures';
-  import { fade } from "svelte/transition";
 
+  export let item;
 
-  export let item, color;
+  let clicked = false;
 
-  const duration = 300
-  const glowSize = tweened(1, { duration });
-  let exiting = false;
+  let width;
+  const LABEL_POS_0 = 0;
+  const LABEL_POS_1 = width > 400 ? 70 : 50;
 
-  const ICON_MAP = {
-    // list item type: icon type
-    video: 'youtube',
-    article: 'file-text',
-    cause: 'thumbs-up',
+  const labelPosition = tweened(50, { duration: 200 });
+
+  const focusStates = {
+    video: 'focus:bg-pink-400',
+    cause: 'focus:bg-purple-300',
+    article: 'focus:bg-sky-300',
   };
-  const icon = ICON_MAP[item.type];
-
-  function onClick(ev) {
-    ev.preventDefault();
-    const goTo = ev.currentTarget.getAttribute('href');
-    exiting = true;
-    setTimeout(() => {
-      exiting = false;
-      window.location = goTo;
-    }, 1000);
-  }
-
-  onMount(() => {
-    feather.replace();
-  });
-
-  const COLOR_MAP = {
-    yellow: `#ffc600`,
-    pink: `#e900ff`,
-    purple: `#5800ff`,
-    teal: `#009dff`,
-    white: `#fff`,
+  const toggle = () => {
+    clicked = !clicked;
+    $labelPosition = $labelPosition === LABEL_POS_0 ? LABEL_POS_1 : LABEL_POS_0;
   };
-
-  const white = `#fff`;
-
-  function setGlow(val){
-    $glowSize = val
-  }
-
-  function onMouseOver(){
-    setGlow(5)
-  }
-  function onMouseExit(){
-    setGlow(1)
-  }
-
 </script>
 
-<a
-  use:tap={{ timeframe: duration }}
-  use:longpress={500}
-  on:click={onClick}
-  on:tap={onMouseOver}
-  on:mouseover={onMouseOver}
-  on:focus={onMouseOver}
-  on:mouseleave={onMouseExit}
-  class="link-item flex relative w-full text-left py-3 px-5 my-6 rounded-md ring-1 ring-gray-500 overflow-hidden"
-  style={`box-shadow: 0 0 ${$glowSize}px ${white}, 0 0 ${$glowSize * 1.5}px ${
-    COLOR_MAP[color]
-  }, 0 0 ${$glowSize * 2}px ${COLOR_MAP[color]}, 0 0 ${$glowSize * 3}px ${COLOR_MAP[color]},
-  inset 0 0 ${$glowSize}px ${white}, inset 0 0 ${$glowSize * 1.5}px ${COLOR_MAP[color]}`}
-  href={item.url}
+<svelte:window bind:innerWidth={width} />
+<GlowWrapper
+  on:glowClick={toggle}
+  asButton={true}
+  color={COLOR_MAP[item.type]}
+  class={`w-full m-auto flex flex-row h-32 items-center relative text-left my-6 rounded-xl overflow-hidden`}
 >
-  <div class="flex absolute h-full w-16 left-0 top-0 p-2 text-center justify-center items-center">
-    <span class={`flex relative h-12 w-12 p-1 text-center justify-center items-center`}>
-      <i data-feather={icon} />
-    </span>
+  {#if !clicked}
+    <div class="h-10 absolute left-0" transition:fly={{ x: -200, duration: 300 }}>
+      <Icon type={item.type} color={COLOR_MAP[item.type]} glow={true} />
+    </div>
+  {/if}
+
+  <div class="w-3/4 relative" style="left: {$labelPosition}px;">
+    <GlowText
+      class="font-exo max-w-custom text-xl md:text-2xl text-right"
+      color={COLOR_MAP[item.type]}
+    >
+      {item.name}
+    </GlowText>
   </div>
-  <div class="pl-10">
-    {#if exiting}
-    <p transition:fade style="text-shadow: 0 0 2px {COLOR_MAP[color]}">
-        Good choice! See you again soon!
-      </p>
-      {:else}
-      <p style="text-shadow: 0 0 2px {COLOR_MAP[color]}">
-          {item.name}
-        </p>
-      {/if}
-  </div>
-</a>
+
+  {#if clicked}
+    <a
+      href={item.url}
+      transition:fly={{ x: 200, duration: 300 }}
+      class="{focusStates[item.type]} absolute top-0 right-0 h-full w-90 flex justify-center "
+      style="max-width: {width > 400 ? 80 : 50}px;"
+    >
+      <GlowWrapper
+        asButton={false}
+        class="h-full w-full m-auto flex justify-center"
+        color={COLOR_MAP[item.type]}
+      >
+        <Icon type="newwindow" color={COLOR_MAP[item.type]} glow={true} />
+      </GlowWrapper>
+    </a>
+  {/if}
+</GlowWrapper>
+
+<style>
+  .max-w-custom {
+    max-width: 300px;
+  }
+</style>
