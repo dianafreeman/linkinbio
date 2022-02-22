@@ -1,8 +1,15 @@
 <script>
   import { tweened } from 'svelte/motion';
 
-  export let color, asButton, onclick;
+  export let color, asButton;
 
+  import { createEventDispatcher } from 'svelte';
+
+	const dispatch = createEventDispatcher();
+
+	function onClick(ev) {
+		dispatch('glowClick', ev);
+	}
   const duration = 100;
   const lowerBound = 1;
   const upperBound = 6;
@@ -53,11 +60,11 @@
 </script>
 
 {#if asButton}
-  <button {...$$props} on:click={() => onclick()} style:box-shadow={glowStyle}>
+  <button {...$$props} on:click={onClick} style:box-shadow={glowStyle}>
     <slot />
   </button>
 {:else}
-  <div {...$$props} on:click={() => onclick()} style:box-shadow={glowStyle}>
+  <div {...$$props} on:click={onClick} style:box-shadow={glowStyle}>
     <slot />
   </div>
 {/if}

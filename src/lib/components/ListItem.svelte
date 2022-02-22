@@ -10,8 +10,9 @@
 
   let clicked = false;
 
+  let width;
   const LABEL_POS_0 = 0;
-  const LABEL_POS_1 = 70;
+  const LABEL_POS_1 = width > 400 ? 70 : 50;
 
   const labelPosition = tweened(50, { duration: 200 });
 
@@ -26,20 +27,21 @@
   };
 </script>
 
+<svelte:window bind:innerWidth={width}/>
 <GlowWrapper
-  onclick={toggle}
+  on:glowClick={toggle}
   asButton={true}
   color={COLOR_MAP[item.type]}
   class={`w-full m-auto flex flex-row h-32 items-center relative text-left my-6 rounded-xl overflow-hidden`}
 >
   {#if !clicked}
-    <div class="w-1/4 h-10 absolute left-0" transition:fly={{ x: -200, duration: 300 }}>
+    <div class="h-10 absolute left-0" transition:fly={{ x: -200, duration: 300 }}>
       <Icon type={item.type} color={COLOR_MAP[item.type]} glow={true} />
     </div>
   {/if}
 
   <div class="w-3/4 relative" style="left: {$labelPosition}px;">
-    <GlowText class="font-exo text-2xl text-right" color={COLOR_MAP[item.type]}>
+    <GlowText class="font-exo max-w-custom text-xl md:text-2xl text-right" color={COLOR_MAP[item.type]}>
       {item.name}
     </GlowText>
   </div>
@@ -49,7 +51,7 @@
       href={item.url}
       transition:fly={{ x: 200, duration: 300 }}
       class="{focusStates[item.type]} absolute top-0 right-0 h-full w-90 flex justify-center "
-      style="max-width: 80px;"
+      style="max-width: {width > 400 ? 80 : 50}px;"
     >
       <GlowWrapper
         asButton={false}
@@ -61,3 +63,9 @@
     </a>
   {/if}
 </GlowWrapper>
+
+<style>
+  .max-w-custom {
+    max-width: 300px;
+  }
+</style>

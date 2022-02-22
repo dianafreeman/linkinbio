@@ -8,7 +8,7 @@
 
 <button
   class="flex rounded-lg bg-gray-800 hover:bg-pink-400 px-1"
-  onClick={toggleActive}
+  on:click={toggleActive}
   style="max-width: 140px;"
 >
   <Icon
