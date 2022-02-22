@@ -5,11 +5,11 @@
 
   import { createEventDispatcher } from 'svelte';
 
-	const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher();
 
-	function onClick(ev) {
-		dispatch('glowClick', ev);
-	}
+  function onClick(ev) {
+    dispatch('glowClick', ev);
+  }
   const duration = 100;
   const lowerBound = 1;
   const upperBound = 6;

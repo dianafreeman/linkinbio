@@ -27,7 +27,7 @@
   };
 </script>
 
-<svelte:window bind:innerWidth={width}/>
+<svelte:window bind:innerWidth={width} />
 <GlowWrapper
   on:glowClick={toggle}
   asButton={true}
@@ -41,7 +41,10 @@
   {/if}
 
   <div class="w-3/4 relative" style="left: {$labelPosition}px;">
-    <GlowText class="font-exo max-w-custom text-xl md:text-2xl text-right" color={COLOR_MAP[item.type]}>
+    <GlowText
+      class="font-exo max-w-custom text-xl md:text-2xl text-right"
+      color={COLOR_MAP[item.type]}
+    >
       {item.name}
     </GlowText>
   </div>
