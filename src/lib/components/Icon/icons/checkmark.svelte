@@ -6,7 +6,9 @@
 <IconBase
   viewBox="0 0 484 645.3"
   fill={iconColor}
-  style={!glow ? "" : `filter: drop-shadow(2px 2px 2px ${color}) drop-shadow(-2px -2px 2px ${color});`}
+  style={!glow
+    ? ''
+    : `filter: drop-shadow(2px 2px 2px ${color}) drop-shadow(-2px -2px 2px ${color});`}
   {...$$props}
 >
   <path

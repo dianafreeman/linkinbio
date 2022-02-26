@@ -14,7 +14,7 @@ const config = {
   ],
   kit: {
     adapter: adapter(),
-   vite: {
+    vite: {
       resolve: {
         alias: {
           // these are the aliases and paths to them

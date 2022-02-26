@@ -10,9 +10,9 @@
   export const prerender = true;
 
   export async function load({ fetch }) {
-    let resp = await fetch('/data')//.then( ({resp}) => console.log(resp))
-    let { postFiles } = await resp.json()
-    
+    let resp = await fetch('/data'); //.then( ({resp}) => console.log(resp))
+    let { postFiles } = await resp.json();
+
     return { props: { postFiles } };
   }
 </script>
@@ -37,7 +37,9 @@
               wrapperClass="h-6 w-6 my-2 mx-1"
               url={social.url}
               iconType={social.type}
-              color={Object.keys(COLOR_MAP).includes(social.type) ? COLOR_MAP[social.type] : COLOR_MAP['white'] }
+              color={Object.keys(COLOR_MAP).includes(social.type)
+                ? COLOR_MAP[social.type]
+                : COLOR_MAP['white']}
               glow={false}
             />
           {/each}
@@ -46,11 +48,9 @@
       <h1 class="font-computer text-center pb-5 pt-10 text-7xl">Hi! I'm Diana.</h1>
 
       <div class="w-full m-auto text-white">
-        
-           {#each postFiles as file, idx}
-            <ListItem item={file.frontmatter} />
-          {/each} 
-        
+        {#each postFiles as file, idx}
+          <ListItem item={file.frontmatter} />
+        {/each}
       </div>
     </div>
   </div>
