@@ -1,12 +1,12 @@
 <script>
   import IconBase from './IconBase.svelte';
-  export let color;
+  export let color, glow;
 </script>
 
 <IconBase
   viewBox="0 0 484 645.3"
   fill={'#fff'}
-  style="filter: drop-shadow(2px 2px 2px {color}) drop-shadow(-2px -2px 2px ${color});"
+  style={!glow ? "" : `filter: drop-shadow(2px 2px 2px ${color}) drop-shadow(-2px -2px 2px ${color});`}
   {...$$props}
 >
   <path

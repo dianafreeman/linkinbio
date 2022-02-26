@@ -4,7 +4,14 @@
   export let viewBox;
 </script>
 
-<svg class:glow xmlns="http://www.w3.org/2000/svg" {viewBox} {...$$props}>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  {viewBox}
+  style={!glow
+    ? ''
+    : `filter: drop-shadow(2px 2px 2px ${color}) drop-shadow(-2px -2px 2px ${color});`}
+  {...$$props}
+>
   {#if title}
     <title>{title}</title>
   {/if}
