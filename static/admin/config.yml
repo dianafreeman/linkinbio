@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: dianafreeman/dianasfreeman
+  repo: dianafreeman/linkinbio
   branch: main
 
 collections:
