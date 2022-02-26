@@ -15,6 +15,6 @@
 
 {#await ICON_TYPE_MAP[type]() then module}
   <div class={wrapperClass || 'w-20 h-10 m-auto '}>
-    <svelte:component this={module.default} {...$$props} {type} {color} {glow}/>
+    <svelte:component this={module.default} {color} {glow}/>
   </div>
 {/await}
