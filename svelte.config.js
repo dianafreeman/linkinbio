@@ -1,6 +1,6 @@
 import preprocess from 'svelte-preprocess';
 import path from 'path';
-import adapter from '@sveltejs/adapter-netlify';
+import adapter from '@sveltejs/adapter-static';
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 
@@ -13,12 +13,8 @@ const config = {
     }),
   ],
   kit: {
-    adapter: adapter({
-      // if true, will split your app into multiple functions
-      // instead of creating a single one for the entire app
-      split: false,
-    }),
-    vite: {
+    adapter: adapter(),
+   vite: {
       resolve: {
         alias: {
           // these are the aliases and paths to them

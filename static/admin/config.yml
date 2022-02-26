@@ -1,18 +1,17 @@
 backend:
   name: github
-  repo: dianafreeman/dianasfreeman
+  repo: dianafreeman/linkinbio
   branch: main
 
 collections:
-  - name: 'links' # Used in routes, e.g., /admin/collections/links
-    label: 'Links' # Used in the UI
-    file: 'src/content/links.json'
+  - label: Links # Used in the UI
+    name: links # Used in routes, e.g., /admin/collections/links
     files:
-      - label: 'LinkInBio Page'
-        name: 'links'
-        file: 'src/content/links.js'
+      - file: "src/content/contentLinks.json"
+        label: Home Page Links
+        name: links
         fields:
-          - { label: Name, name: title, widget: string }
+          - { label: "Name", name: "name", widget: "string" }
           - {
               label: Url,
               name: url,
@@ -23,14 +22,14 @@ collections:
                   'Must be a valid URL',
                 ],
             }
-          - { label: Type, name: type, widget: string }
-          - { label: Color, name: type, widget: string }
-
-      - label: 'Socials'
-        name: 'socials'
-        file: 'site/content/socials.json'
+          - { label: Icon, name: icon, widget: "select", options: ["bookmark", "checkmark", "handshake", "newwindow", "tiktok", "youtube"] }
+          - { label: Date, name: date,   widget: "datetime", default: "", date_format: "DD.MM.YYYY", time_format: false, format: "LLL", picker_utc: false }
+     
+      - file: "site/content/navLinks.json"
+        label: "Nav Links"
+        name: "nav-links"
         fields:
-          - { label: Name, name: title, widget: string }
+          - { label: "Name", name: "name", widget: "string" }
           - {
               label: Url,
               name: url,
@@ -41,6 +40,8 @@ collections:
                   'Must be a valid URL',
                 ],
             }
+          - { label: Icon, name: icon, widget: select, options: ["bookmark", "checkmark", "handshake", "newwindow", "tiktok", "youtube"] }
+          - { label: Date, name: date,   widget: "datetime", default: "", date_format: "DD.MM.YYYY", time_format: false, format: "LLL", picker_utc: false }
 
 media_folder: 'static/images/uploads'
 public_folder: '/images/uploads'

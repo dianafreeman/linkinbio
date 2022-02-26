@@ -31,19 +31,19 @@
 <GlowWrapper
   on:glowClick={toggle}
   asButton={true}
-  color={COLOR_MAP[item.type]}
+  color={COLOR_MAP[item.icon]}
   class={`w-full m-auto flex flex-row h-32 items-center relative text-left my-6 rounded-xl overflow-hidden`}
 >
   {#if !clicked}
     <div class="h-10 absolute left-0" transition:fly={{ x: -200, duration: 300 }}>
-      <Icon type={item.type} color={COLOR_MAP[item.type]} glow={true} />
+      <Icon type={item.icon} color={COLOR_MAP[item.icon]} glow={true} />
     </div>
   {/if}
 
   <div class="w-3/4 relative" style="left: {$labelPosition}px;">
     <GlowText
       class="font-exo max-w-custom text-xl md:text-2xl text-right"
-      color={COLOR_MAP[item.type]}
+      color={COLOR_MAP[item.icon]}
     >
       {item.name}
     </GlowText>
@@ -53,15 +53,15 @@
     <a
       href={item.url}
       transition:fly={{ x: 200, duration: 300 }}
-      class="{focusStates[item.type]} absolute top-0 right-0 h-full w-90 flex justify-center "
+      class="{focusStates[item.icon]} absolute top-0 right-0 h-full w-90 flex justify-center "
       style="max-width: {width > 400 ? 80 : 50}px;"
     >
       <GlowWrapper
         asButton={false}
         class="h-full w-full m-auto flex justify-center"
-        color={COLOR_MAP[item.type]}
+        color={COLOR_MAP[item.icon]}
       >
-        <Icon type="newwindow" color={COLOR_MAP[item.type]} glow={true} />
+        <Icon type="newwindow" color={COLOR_MAP[item.icon]} glow={true} />
       </GlowWrapper>
     </a>
   {/if}
