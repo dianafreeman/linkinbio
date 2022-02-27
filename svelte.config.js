@@ -20,7 +20,7 @@ const config = {
           // these are the aliases and paths to them
           $components: path.resolve('./src/lib/components'),
           $config: path.resolve('./src/lib/config'),
-          $content: path.resolve('./src/content'),
+          $content: path.resolve('./_content'),
         },
       },
     },
