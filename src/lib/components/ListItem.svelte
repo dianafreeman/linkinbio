@@ -1,5 +1,5 @@
 <script>
-  import Icon from '$lib/elements/Icon/Icon.svelte';
+  import Icon from './Icon/index.svelte';
   import GlowWrapper from './GlowWrapper.svelte';
   import COLOR_MAP from '$lib/config/colorMap';
   import GlowText from './GlowText.svelte';
@@ -31,21 +31,21 @@
 <GlowWrapper
   on:glowClick={toggle}
   asButton={true}
-  color={COLOR_MAP[item.icon]}
+  color={COLOR_MAP[item.type]}
   class={`w-full m-auto flex flex-row h-32 items-center relative text-left my-6 rounded-xl overflow-hidden`}
 >
   {#if !clicked}
     <div class="h-10 absolute left-0" transition:fly={{ x: -200, duration: 300 }}>
-      <Icon type={item.icon} color={COLOR_MAP[item.icon]} glow={true} />
+      <Icon type={item.icon} color={COLOR_MAP[item.type]} glow={true} />
     </div>
   {/if}
 
   <div class="w-3/4 relative" style="left: {$labelPosition}px;">
     <GlowText
       class="font-exo max-w-custom text-xl md:text-2xl text-right"
-      color={COLOR_MAP[item.icon]}
+      color={COLOR_MAP[item.type]}
     >
-      {item.name}
+      {item.title}
     </GlowText>
   </div>
 
@@ -59,9 +59,9 @@
       <GlowWrapper
         asButton={false}
         class="h-full w-full m-auto flex justify-center"
-        color={COLOR_MAP[item.icon]}
+        color={COLOR_MAP[item.type]}
       >
-        <Icon type="newwindow" color={COLOR_MAP[item.icon]} glow={true} />
+        <Icon type="newwindow" color={COLOR_MAP[item.type]} glow={true} />
       </GlowWrapper>
     </a>
   {/if}

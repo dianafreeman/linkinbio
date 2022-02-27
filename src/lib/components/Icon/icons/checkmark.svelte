@@ -1,14 +1,9 @@
 <script>
   import IconBase from './IconBase.svelte';
-  export let iconColor, glowColor;
+  export let iconColor, color, glow;
 </script>
 
-<IconBase
-  viewBox="0 0 484 645.3"
-  fill={iconColor}
-  style="filter: drop-shadow(2px 2px 2px {glowColor}) drop-shadow(-2px -2px 2px ${glowColor});"
-  {...$$props}
->
+<IconBase viewBox="0 0 484 645.3" fill={iconColor} {color} {glow}>
   <path
     d="M232,527.8c-15.9,0-31.7-6-43.8-18.1l-0.1-0.1l-138-139c-11.6-11.7-18-29.9-17.6-49.9c0.4-19.5,7.2-37.2,18.6-48.6
 		c11.5-11.5,29.3-18.2,48.8-18.2c19.5,0,37.3,6.6,48.8,18.2l0.1,0.1l83.3,84l202-201.1c11.6-11.7,27.2-18.1,43.8-18.1

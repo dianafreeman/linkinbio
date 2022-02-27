@@ -1,17 +1,11 @@
 <script>
-  import { tap } from 'svelte-gestures';
-  import { clickOutside } from '$lib/actions/clickOutside';
-  import Icon from '../elements/Icon/Icon.svelte';
+  import Icon from './Icon/index.svelte';
 
-  export let iconType, color, url, wrapperClass;
-
-  let wasTapped = true;
-
-  const toggleWasTapped = (value) => (wasTapped = value || !wasTapped);
+  export let iconType, color, url, glow, wrapperClass;
 </script>
 
 <a href={url} {...$$props}>
-  <Icon type={iconType} {color} {wrapperClass} />
+  <Icon type={iconType} {color} {glow} {wrapperClass} />
   <div class="w-auto flex-1">
     <slot />
   </div>
