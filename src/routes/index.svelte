@@ -32,6 +32,7 @@
       <div class="absolute top-0 left-0 w-full border border-gray-500 bg-gray-500 rounded-t-lg">
         <nav class="flex flex-row w-full justify-end">
           {#each socials as social (social.url)}
+          <!-- Note two of these icons are pulled directly from font awesome, and aren't configured for {glow: true} -->
             <IconButton
               class="m-1 ring-2 ring-gray-600 hover:ring-gray-300 focus:ring-gray-300 bg-gray-600 hover:bg-gray-800 focus:bg-gray-800 rounded-full px-2"
               wrapperClass="h-6 w-6 my-2 mx-1"

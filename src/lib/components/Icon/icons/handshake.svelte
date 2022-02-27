@@ -1,8 +1,6 @@
 <script>
   import IconBase from './IconBase.svelte';
-  export let iconColor = '#fff',
-    color,
-    glow;
+  export let iconColor, color, glow;
 </script>
 
 <IconBase viewBox="0 0 484 645.3" fill={iconColor} {color} {glow}>

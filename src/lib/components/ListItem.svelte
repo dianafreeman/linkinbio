@@ -1,5 +1,5 @@
 <script>
-  import Icon from './Icon/Icon.svelte';
+  import Icon from './Icon/index.svelte';
   import GlowWrapper from './GlowWrapper.svelte';
   import COLOR_MAP from '$lib/config/colorMap';
   import GlowText from './GlowText.svelte';
