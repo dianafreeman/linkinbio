@@ -2,10 +2,10 @@ import fs from 'fs/promises';
 import frontmatter from 'frontmatter';
 
 export async function get() {
-  const filenames = await fs.readdir('src/content/listItems/');
+  const filenames = await fs.readdir('_content/listItems/');
 
   const contentPromises = await filenames.map(async (filename) => {
-    const data = await fs.readFile(`src/content/listItems/${filename}`);
+    const data = await fs.readFile(`_content/listItems/${filename}`);
     const newItem = frontmatter(data.toString());
     return { frontmatter: newItem.data, body: newItem.content };
   });
