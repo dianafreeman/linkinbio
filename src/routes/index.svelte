@@ -1,5 +1,4 @@
 <script context="module">
-
   import IconButton from '$lib/components/IconButton.svelte';
   import ListItem from '$lib/components/ListItem.svelte';
   import COLOR_MAP from '$lib/config/colorMap';

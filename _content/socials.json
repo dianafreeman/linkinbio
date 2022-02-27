@@ -1,18 +1,17 @@
 [
-    {
-      "url": "https://www.linkedin.com/in/dianasteakleyfreeman",
-      "name": "connect on linkedin",
-      "type": "linkedin"
-    },
-    {
-      "url": "https://github.com/dianafreeman/",
-      "name": "check out my github",
-      "type": "github"
-    },
-    {
-      "url": "https://www.tiktok.com/@dianasfreeman",
-      "name": "find me on tiktok",
-      "type": "tiktok"
-    }
-  ]
-  
+  {
+    "url": "https://www.linkedin.com/in/dianasteakleyfreeman",
+    "name": "connect on linkedin",
+    "type": "linkedin"
+  },
+  {
+    "url": "https://github.com/dianafreeman/",
+    "name": "check out my github",
+    "type": "github"
+  },
+  {
+    "url": "https://www.tiktok.com/@dianasfreeman",
+    "name": "find me on tiktok",
+    "type": "tiktok"
+  }
+]

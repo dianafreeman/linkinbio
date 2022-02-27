@@ -6,36 +6,30 @@ backend:
 collections:
   - label: List Items
     name: list-items # Used in routes, e.g., /admin/collections/links
-    folder: "_content/listItems"
+    folder: '_content/listItems'
     create: true
     identifier_field: name
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - {
-            label: Url,
-            name: url,
-            widget: string,
-            pattern:
-              [
-                'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)',
-                'Must be a valid URL',
-              ],
-          }
+          label: Url,
+          name: url,
+          widget: string,
+          pattern:
+            [
+              'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)',
+              'Must be a valid URL',
+            ],
+        }
       - {
           label: Icon,
           name: icon,
           widget: 'select',
           options: ['bookmark', 'checkmark', 'handshake', 'newwindow', 'tiktok', 'youtube'],
         }
-      - {
-          label: Link Type,
-          name: type,
-          widget: 'select',
-          options: ['article', 'cause', 'video'],
-        }
-      - {label: "Body", name: "body", widget: "markdown"}
-    
-   
+      - { label: Link Type, name: type, widget: 'select', options: ['article', 'cause', 'video'] }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
 media_folder: 'static/images/uploads'
 public_folder: '/images/uploads'
