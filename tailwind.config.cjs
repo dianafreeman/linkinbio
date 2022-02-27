@@ -13,8 +13,8 @@ const AQUAMARINE_CUSTOM = {
   700: '#1AF9FF',
   800: '#00F0EB',
   900: '#00C7BA',
-}
-const DARK_BLUE_CUSTOM =  {
+};
+const DARK_BLUE_CUSTOM = {
   DEFAULT: '#0300BD',
   50: '#9375FF',
   100: '#8061FF',
@@ -26,7 +26,7 @@ const DARK_BLUE_CUSTOM =  {
   700: '#00086B',
   800: '#000842',
   900: '#00041A',
-}
+};
 const PURPLE_CUSTOM = {
   DEFAULT: '#B442FF',
   50: '#FEFAFF',
@@ -39,7 +39,7 @@ const PURPLE_CUSTOM = {
   700: '#7000F0',
   800: '#5000C7',
   900: '#35009E',
-}
+};
 
 const PINK_CUSTOM = {
   DEFAULT: '#FF42CD',
@@ -53,7 +53,7 @@ const PINK_CUSTOM = {
   700: '#F000D0',
   800: '#C700BA',
   900: '#9E009E',
-}
+};
 const YELLOW_CUSTOM = {
   DEFAULT: '#FFD86B',
   50: '#FFFFFF',
@@ -66,7 +66,7 @@ const YELLOW_CUSTOM = {
   700: '#FFA31A',
   800: '#F08000',
   900: '#C75D00',
-}
+};
 module.exports = {
   mode: 'jit',
   purge: ['./src/**/*.{html,js,svelte,ts}'],
