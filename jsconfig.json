@@ -3,13 +3,9 @@
     "baseUrl": ".",
     "paths": {
       "$lib": ["src/lib"],
-      "$components": ["src/components"],
-      "$components/*": ["src/components/*"],
-      "$config": ["src/config"],
-      "$config/*": ["src/config/*"],
+      "$lib/*": ["src/lib/*"],
       "$content": ["_content"],
-      "$content/*": ["_content/*"],
-      "$lib/*": ["src/lib/*"]
+      "$content/*": ["_content/*"]
     }
   },
   "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.svelte"]
