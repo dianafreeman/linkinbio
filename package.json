@@ -27,7 +27,7 @@
     "prettier-eslint": "^13.0.0",
     "prettier-plugin-svelte": "^2.4.0",
     "sass": "^1.49.7",
-    "svelte": "^3.46.0",
+    "svelte": "^3.49.0",
     "svelte-preprocess": "^4.10.3",
     "tailwindcss": "^3.0.22"
   },
